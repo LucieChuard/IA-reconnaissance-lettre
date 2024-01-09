@@ -50,7 +50,7 @@ class ScreenDraw:
         letter_to_read = cv2.imread(f"{folder}/letter{self.i}.png", cv2.IMREAD_GRAYSCALE)
         letter_to_read = cv2.resize(letter_to_read, (28, 28)).flatten()
 
-        letter_to_read = np.full((1, 784), self.i)  # Utilisation de np.full pour créer un tableau répétant la valeur de self.i
+        letter_to_read = letter_to_read.reshape(1, -1)  # Utilisation de reshape pour ajuster la forme
         prediction = self.multi_layer.predict(letter_to_read)
         self.word = self.word + str(chr(prediction[0] + 96))
 

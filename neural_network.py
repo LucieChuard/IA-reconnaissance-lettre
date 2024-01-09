@@ -7,7 +7,7 @@ import joblib
 
 import data
 
-multi_layer = MLPClassifier(hidden_layer_sizes=(100,100,100,100,100,), max_iter=50, alpha=1e-4,
+multi_layer = MLPClassifier(hidden_layer_sizes=(100,100,100,100,100,), max_iter=200, alpha=1e-4,
                         solver='sgd', tol=1e-4, random_state=1,
                         learning_rate_init=.1)
 
