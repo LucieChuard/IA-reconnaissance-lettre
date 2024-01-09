@@ -7,10 +7,12 @@ import joblib
 
 import data
 
-def train():
-    multi_layer = MLPClassifier(hidden_layer_sizes=(100,100,100,100,100,), max_iter=50, alpha=1e-4,
+multi_layer = MLPClassifier(hidden_layer_sizes=(100,100,100,100,100,), max_iter=50, alpha=1e-4,
                         solver='sgd', tol=1e-4, random_state=1,
                         learning_rate_init=.1)
+
+def train():
+
     multi_layer.fit(data.image_train, data.label_train)
     print("Training set score: %f" % multi_layer.score(data.image_train, data.label_train))
     print("Test set score: %f" % multi_layer.score(data.image_train, data.label_train))
